@@ -1,0 +1,42 @@
+{% extends '../index_master.html' %}
+
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+
+    <h1>Modalidades</h1>
+    <div>
+        <a class="btn btn-primary" style="margin: 2% 4% 2% 4%;" href="../agregarModalidad">Agregar</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+             <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for modalidades in modalidades %}
+                <tr>
+                    <td>{{modalidades.codmodalidad}}</td>
+                    <td>{{modalidades.nombre}}</td>
+                    <td>{{modalidades.estado}}</td>
+                    <td><a href="../editarModalidad/{{modalidades.codmodalidad}}" class="btn btn-secondary">Editar</a></td>
+                    <!---<td><a href="eliminar_persona/{{persona.id}}" class="btn btn-danger">Eliminar</a></td>--->
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+<!-- /page content -->
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends '../index_master.html' %}
+
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+
+    <h1>Actividades</h1>
+    <div>
+        <a class="btn btn-primary" style="margin: 2% 4% 2% 4%;" href="../agregarActividad">Agregar</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+             <tr>
+                    <th>#</th>
+                    <th>Instructor</th>
+                    <th>Modalidad</th>
+                    <th>Dia</th>
+                    <th>hora entrada</th>
+                    <th>hora salida</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for actividad in actividades %}
+                <tr>
+                    <td>{{actividad.codactividad}}</td>
+                    <td>{{actividad.DNIinstructor.nombre}} {{actividad.DNIinstructor.apellido}}</td>
+                    <td>{{actividad.codmodalidad.nombre}}</td>
+                    <td>{{actividad.coddia.descripcion}}</td>
+                    <td>{{actividad.horaentrada}}</td>
+                    <td>{{actividad.horasalida}}</td>
+                    <td><a href="detalle_persona/{{persona.id}}" class="btn btn-info">Ver detalle</a></td>
+                    <td><a href="editarActividad/{{actividad.codactividad}}" class="btn btn-secondary">Editar</a></td>
+                    <!---<td><a href="eliminar_persona/{{persona.id}}" class="btn btn-danger">Eliminar</a></td>--->
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+<!-- /page content -->
+{% endblock %}

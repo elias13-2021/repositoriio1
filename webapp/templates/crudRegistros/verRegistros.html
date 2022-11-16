@@ -1,0 +1,74 @@
+{% extends '../index_master.html' %}
+{% load render_table from django_tables2 %}
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <!-- top tiles -->
+    <h1>Lista de registros</h1>
+
+    <div style="display: inline-block">
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+              method="GET">
+
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar"
+                       value="">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Modalidad</th>
+                <th scope="col">Fecha</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for u in registros %}
+            <tr>
+                <td>{{ u.codregistro }}</td>
+                <td>{{ u.DNI.DNI }}</td>
+                <td>{{ u.DNI.nombre }}</td>
+                <td>{{ u.DNI.apellido }}</td>
+                <td>{{ u.codactividad.codmodalidad.nombre }}</td>
+                <td>{{ u.fecha }}</td>
+                <td><a href="detalleregistro/{{registro.codregistro}}" class="btn btn-info">Ver detalle</a></td>
+                <td><a href="../editarRegistro/{{u.codregistro}}" class="btn btn-secondary">Editar</a></td>-->
+                <!---<td><a href="eliminar_persona/{{persona.id}}" class="btn btn-danger">Eliminar</a></td>--->
+           <!-- </tr>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+    {% if user.is_staff %} -->
+    <!--<div class="">
+        <h1><br>Registros</h1>
+
+    </div><br>
+
+
+    <form action="" method="GET" style="position:relative; margin: 2% 4% 2% 4%; float:right;">
+        {{filterset_class.form}}
+        <button class="btn btn-primary" type="submit">Buscar</button>
+    </form>
+    <div class="" style="max-height: 65%; width:100%; overflow:auto;">
+        {% render_table table %}
+    </div>
+     {% endif %} -->
+</div>
+<!-- /page content -->
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends '../index_master.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <!-- top tiles -->
+    <h1>Agregar actividad</h1>
+    <div>
+        <form method="POST">
+            <table>
+                {{formaActividad | crispy}}
+            </table>
+            <button type="Sumit" class="btn btn-primary">Guardar</button>
+            {% csrf_token %}
+        </form>
+    </div>
+
+</div>
+<!-- /page content -->
+{% endblock %}

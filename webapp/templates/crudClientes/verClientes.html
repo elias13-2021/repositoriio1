@@ -1,0 +1,55 @@
+{% extends '../index_master.html' %}
+
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <!-- top tiles -->
+    <h1>Lista de clientes</h1>
+    <!--<button class="btn btn-primary" style="margin: 2% 4% 2% 4%;" href="crudClientes/agregarCliente">Agregar</button>-->
+    <div style="display: inline-block">
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+              method="GET">
+
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar"
+                       value="">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">DNI</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Fecha de registro</th>
+                <th scope="col">Estado</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for u in clientes %}
+            <tr>
+                <th>{{ u.DNI }}</th>
+                <td>{{ u.nombre }} {{ u.apellido }}</td>
+                <td>{{ u.telefono }}</td>
+                <td>{{ u.fechadealta }}</td>
+                <td>{{ u.estado }}</td>
+                <td><a href="../editarCliente/{{u.DNI}}" class="btn btn-secondary">Editar</a></td>
+                <td><a href="../detalleCliente/{{u.DNI}}" class="btn btn-econdary">Detalle</a></td>
+
+            </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<!-- /page content -->
+{% endblock %}

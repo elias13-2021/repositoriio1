@@ -1,0 +1,21 @@
+{% extends '../index_master.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>
+
+</h1>
+<div class="right_col" role="main">
+    <h1>Detalle del cliente</h1>
+    <div>DNI: {{cliente.DNI}}</div>
+    <div>Nombre: {{cliente.nombre}}</div>
+    <div>Apellido: {{cliente.apellido}}</div>
+    <div>telefono: {{cliente.telefono}}</div>
+    <div>email: {{cliente.email}}</div>
+    <div>fecha de alta: {{cliente.fechadealta}}</div>
+    <div>observacion: {{cliente.observacion}}</div>
+    <div>estado: {{cliente.estado}}</div>
+
+
+</div>
+<!-- /page content -->
+{% endblock %}

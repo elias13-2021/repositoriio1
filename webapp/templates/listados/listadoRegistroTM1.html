@@ -1,0 +1,43 @@
+{% extends '../index_master.html' %}
+
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+
+    <h1> 7 - 8 AM</h1>
+    <div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Modalidad</th>
+                <th scope="col">Fecha</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for u in listadotm1 %}
+            <tr>
+                <td>{{ u.DNI.nombre }}</td>
+                <td>{{ u.DNI.apellido }}</td>
+                <td>{{ u.codactividad.codmodalidad.nombre }}</td>
+                <td>{{ u.fecha }}</td>
+                <td><a href="detalleregistro/{{registro.codregistro}}" class="btn btn-info">Ver detalle</a></td>
+                <td><a href="../editarRegistro/{{u.codregistro}}" class="btn btn-secondary">Editar</a></td>
+
+                <!---<td><a href="eliminar_persona/{{persona.id}}" class="btn btn-danger">Eliminar</a></td>--->
+            </tr>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+<!-- /page content -->
+{% endblock %}

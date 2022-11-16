@@ -1,0 +1,50 @@
+{% extends '../index_master.html' %}
+
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <!-- top tiles -->
+    <h1>Instructores</h1>
+    <div>
+        <a class="btn btn-primary" style="margin: 2% 4% 2% 4%;" href="../agregarInstructor">Agregar</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Matricula</th>
+                <th>Fecha de alta</th>
+                <th>Estado</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for instructor in instructores %}
+            <tr>
+                <td>{{instructor.DNIinstructor}}</td>
+                <td>{{instructor.nombre}} {{instructor.apellido}}</td>
+                <td>{{instructor.telefono}}</td>
+                <td>{{instructor.email}}</td>
+                <td>{{instructor.matricula}}</td>
+                <td>{{instructor.fechadealta}}</td>
+                <td>{{instructor.estado}}</td>
+                <td><a href="../editarInstructor/{{instructor.DNIinstructor}}" class="btn btn-secondary">Editar</a></td>
+                <!---<td><a href="eliminar_persona/{{persona.id}}" class="btn btn-danger">Eliminar</a></td>--->
+            </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+<!-- /page content -->
+{% endblock %}

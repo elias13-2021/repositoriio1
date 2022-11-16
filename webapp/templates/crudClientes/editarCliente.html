@@ -1,0 +1,22 @@
+{% extends '../index_master.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>
+
+</h1>
+<div class="right_col" role="main">
+
+    <form method="POST">
+    <h1>Editar Instructor</h1>
+    <table>
+    {{formaCliente | crispy}}
+    </table>
+    <button type="Sumit">Guardar</button>
+    <button type="Cancel">Volver</button>
+    {% csrf_token %}
+
+</form>
+
+</div>
+<!-- /page content -->
+{% endblock %}
